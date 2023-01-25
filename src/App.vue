@@ -1,19 +1,25 @@
 <script>
 import UserButton from '@/components/UserButton.vue';
 import UserMenu from '@/components/UserMenu.vue';
-import CardsColumn from '@/components/CardsColumn.vue';
+import KanbanBoard from '@/components/KanbanBoard.vue';
 import {ref, onMounted} from 'vue';
+import {useBoard} from '@/stores/board';
 
 export default {
   components: {
     UserButton,
     UserMenu,
-    CardsColumn,
+    KanbanBoard,
   },
   setup() {
     const isShowMenu = ref(false);
     const userMenu = ref(null);
     const userButton = ref(null);
+    const board = useBoard();
+
+    board.$subscribe((mutation, state) => {
+      localStorage.setItem('board', JSON.stringify(state));
+    });
 
     onMounted(() => {
       document.addEventListener('click', onClickOutsideMenu);
@@ -30,6 +36,7 @@ export default {
       isShowMenu,
       userMenu,
       userButton,
+      board,
     };
   },
 };
@@ -41,8 +48,9 @@ export default {
     <user-button user-name="Sergey" @click="isShowMenu =!isShowMenu" ref="userButton"/>
     <user-menu user-name="Sergey" v-show="isShowMenu" ref="userMenu"/>
   </header>
+
   <main class="main">
-    <cards-column/>
+    <kanban-board/>
   </main>
 </template>
 
@@ -62,9 +70,8 @@ export default {
   }
 }
 .main {
-  background-color: #005C91;
   padding: 10px 50px;
-  height: 500px;
+  //height: 500px;
   display: flex;
   gap: 8px;
 }

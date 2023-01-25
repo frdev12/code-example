@@ -35,6 +35,7 @@ export default {
   background-color: white;
   padding: 20px 15px;
   box-shadow: 0 0 5px 1px grey;
+  z-index: 10;
 
   &__title {
     text-transform: uppercase;
