@@ -45,5 +45,11 @@ export const useBoard = defineStore('Board', {
       const index = column.cards.findIndex(item => item.id === cardId);
       column.cards.splice(index, 1);
     },
+    getBoard() {
+      if (localStorage.getItem('board')) {
+        const board = JSON.parse(localStorage.getItem('board'));
+        this.columns = board.columns;
+      }
+    },
   },
 });
