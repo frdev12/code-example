@@ -26,8 +26,10 @@ export default {
   background-color: #3D87B2;
   color: white;
   border-radius: 5px;
+  width: 200px;
   &:hover {
     cursor: pointer;
+    background-color: #55A9DC;
   }
 }
 </style>
