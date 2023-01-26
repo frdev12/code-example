@@ -1,4 +1,5 @@
 import {defineStore} from 'pinia';
+import moment from 'moment';
 
 export const useBoard = defineStore('Board', {
   state: () => {
@@ -26,7 +27,7 @@ export const useBoard = defineStore('Board', {
         cards: [],
       });
     },
-    addNewCard(cardTitle, columnId) {
+    addNewCard(cardTitle, columnId, creator) {
       const ids = this.columns.map(item => item.cards.map(elem => elem.id)).flat();
       let maxId;
       if (ids.length === 0) {
@@ -34,10 +35,14 @@ export const useBoard = defineStore('Board', {
       } else {
         maxId = Math.max(...ids);
       }
+
       const column = this.columns.find(item => item.id === columnId);
       column.cards.push({
         id: maxId + 1,
         cardTitle: cardTitle,
+        creator: creator,
+        date: moment().format('YYYY-MM-DD'),
+        text: null,
       });
     },
     removeCard(cardId, columnId) {

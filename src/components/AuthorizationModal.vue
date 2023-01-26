@@ -35,7 +35,7 @@ export default {
   <div class="auth-modal">
     <div class="auth-modal__title">Для продолжения работы введите Ваше имя</div>
     <div class="auth-modal__input">
-      <input type="text" placeholder="Введите имя" v-model="userName">
+      <input type="text" placeholder="Введите имя" v-model="userName" @keydown.enter="login">
       <span
           v-if="v$.userName.required.$invalid && v$.userName.$dirty"
           class="validation-error"

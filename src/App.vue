@@ -3,9 +3,11 @@ import UserButton from '@/components/UserButton.vue';
 import UserMenu from '@/components/UserMenu.vue';
 import KanbanBoard from '@/components/KanbanBoard.vue';
 import AuthorizationModal from '@/components/AuthorizationModal.vue';
+import OpenedCardModal from '@/components/OpenedCardModal.vue';
 import {ref, onMounted} from 'vue';
 import {useBoard} from '@/stores/board';
 import {useUser} from '@/stores/user';
+import {useCardModal} from '@/stores/cardModal';
 
 export default {
   components: {
@@ -13,6 +15,7 @@ export default {
     UserMenu,
     KanbanBoard,
     AuthorizationModal,
+    OpenedCardModal,
   },
   setup() {
     const isShowMenu = ref(false);
@@ -21,6 +24,7 @@ export default {
     const isShowAuthModal = ref(false);
     const board = useBoard();
     const user = useUser();
+    const cardModal = useCardModal();
 
     board.$subscribe((mutation, state) => {
       localStorage.setItem('board', JSON.stringify(state));
@@ -64,6 +68,7 @@ export default {
       user,
       logout,
       login,
+      cardModal,
     };
   },
 };
@@ -86,6 +91,7 @@ export default {
   </main>
 
   <AuthorizationModal @login="login" v-if="isShowAuthModal"/>
+  <OpenedCardModal v-if="cardModal.isShowCardModalGet"/>
 </template>
 
 <style lang="scss" scoped>
