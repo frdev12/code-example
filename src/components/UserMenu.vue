@@ -22,7 +22,7 @@ export default {
       <user-button :user-name="userName" :is-in-menu="true"/>
       <div>{{ userName }}</div>
     </div>
-    <button class="user-menu__logout">Выйти</button>
+    <button class="user-menu__logout" @click="$emit('logout')">Выйти</button>
   </div>
 </template>
 

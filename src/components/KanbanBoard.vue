@@ -48,9 +48,9 @@ export default {
 
     return {
       onDrop,
-      columns,
       isShowAddButton,
       addNewColumn,
+      board,
     };
   },
 }
@@ -59,7 +59,7 @@ export default {
 <template>
   <div class="kanban-board">
     <Container class="kanban-board-container" orientation="horizontal" @drop="onDrop">
-      <Draggable v-for="column in columns" :key="column.id">
+      <Draggable v-for="column in board.columnsGet" :key="column.id">
         <div>
           <kanban-column :column-id="column.id"/>
         </div>
