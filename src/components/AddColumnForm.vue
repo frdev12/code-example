@@ -46,6 +46,7 @@ export default {
     border-radius: 5px;
     margin-bottom: 5px;
     width: 100%;
+    padding: 5px;
   }
 
   &__actions {
@@ -57,8 +58,15 @@ export default {
       border-radius: 5px;
       color: white;
       margin-right: 10px;
+      cursor: pointer;
       &:hover {
-        cursor: pointer;
+        background-color: #3D87B2;
+      }
+    }
+    .icon-close {
+      cursor: pointer;
+      &:hover {
+        fill: red;
       }
     }
   }

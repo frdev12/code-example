@@ -17,11 +17,12 @@ export default {
   },
   setup() {
     const board = useBoard();
-    let columns = board.columnsGet;
+    // let columns = board.columnsGet;
     const isShowAddButton = ref(true);
 
     function onDrop(dropResult) {
-      columns = applyDrag(columns, dropResult);
+      const columns = applyDrag(board.columnsGet, dropResult);
+      board.setBoard(columns);
     }
     
     function applyDrag(arr, dragResult) {
@@ -64,9 +65,12 @@ export default {
           <kanban-column :column-id="column.id"/>
         </div>
       </Draggable>
+      <div>
+        <add-column-button v-if="isShowAddButton" @click="isShowAddButton = false"/>
+        <add-column-form v-else @closeAddColumnForm="isShowAddButton = true" @addNewColumn="addNewColumn"/>
+      </div>
     </Container>
-    <add-column-button v-if="isShowAddButton" @click="isShowAddButton = false"/>
-    <add-column-form v-else @closeAddColumnForm="isShowAddButton = true" @addNewColumn="addNewColumn"/>
+
   </div>
 </template>
 

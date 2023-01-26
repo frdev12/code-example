@@ -112,6 +112,9 @@ export default {
   padding: 0 10px 10px;
   background-color: #EBECF0;
   color: #52617B;
+  overflow-y: auto;
+  max-height: 85vh;
+  border-radius: 5px;
 
   &__title {
     font-weight: 500;
@@ -170,13 +173,16 @@ export default {
     button {
       padding: 5px;
       border-radius: 5px;
+      cursor: pointer;
       &:hover {
-        cursor: pointer;
         background-color: lightgrey;
       }
     }
     .icon-close {
       cursor: pointer;
+      &:hover {
+        fill: red;
+      }
     }
   }
 }

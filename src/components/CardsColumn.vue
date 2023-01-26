@@ -14,6 +14,5 @@ export default {
 .cards-column {
   background-color: #EBECF0;
   width: 200px;
-  height: 200px;
 }
 </style>

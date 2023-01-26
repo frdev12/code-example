@@ -95,7 +95,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   background-color: #0066A0;
-  position: relative;
 
   .logo {
     font-size: 18px;
@@ -105,8 +104,9 @@ export default {
 }
 .main {
   padding: 10px 50px;
-  //display: flex;
-  //gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 90vh;
 
 }
 </style>

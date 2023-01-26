@@ -51,5 +51,8 @@ export const useBoard = defineStore('Board', {
         this.columns = board.columns;
       }
     },
+    setBoard(columns) {
+      this.columns = columns;
+    },
   },
 });
