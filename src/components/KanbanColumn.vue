@@ -5,6 +5,7 @@ import IconDone from '@/components/icons/IconDone.vue';
 import IconClose from '@/components/icons/IconClose.vue';
 import { Container, Draggable } from "vue3-smooth-dnd";
 import {useBoard} from '@/stores/board';
+import {useUser} from '@/stores/user';
 import {ref} from 'vue';
 
 export default {
@@ -29,6 +30,7 @@ export default {
     const isEditColumnTitle = ref(false);
     const isCreateNewCard = ref(false);
     const newCardTitle = ref(null);
+    const user = useUser();
     
     function onDrop(dropResult) {
       column.cards = applyDrag(column.cards, dropResult);
@@ -55,7 +57,7 @@ export default {
 
     function addNewCard() {
       if (!newCardTitle.value) return;
-      board.addNewCard(newCardTitle.value, props.columnId);
+      board.addNewCard(newCardTitle.value, props.columnId, user.userName);
       isCreateNewCard.value = false;
       newCardTitle.value = null;
     }
