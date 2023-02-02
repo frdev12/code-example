@@ -1,7 +1,7 @@
 <script>
 import {ref} from 'vue';
-import { useVuelidate } from '@vuelidate/core';
-import { required, minLength, maxLength } from '@vuelidate/validators';
+import {useVuelidate} from '@vuelidate/core';
+import {required, minLength, maxLength} from '@vuelidate/validators';
 
 export default {
   name: 'AuthorizationModal',
@@ -9,8 +9,8 @@ export default {
   setup(_, context) {
     const userName = ref(null);
     const rules = {
-      userName: { required, minLength: minLength(3), maxLength: maxLength(10) },
-    }
+      userName: {required, minLength: minLength(3), maxLength: maxLength(10)},
+    };
     const v$ = useVuelidate(rules, {userName});
 
     function login() {
@@ -26,7 +26,7 @@ export default {
       login,
       userName,
     };
-  }
+  },
 };
 </script>
 
@@ -70,6 +70,7 @@ export default {
   height: 100vh;
   z-index: 1;
 }
+
 .auth-modal {
   width: 300px;
   background-color: white;
@@ -85,16 +86,19 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 50px;
+
   &__title {
     font-weight: 500;
     font-size: 18px;
     text-align: center;
   }
+
   &__input {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
+
     input {
       border: 1px solid #005C91;
       border-radius: 5px;
@@ -102,6 +106,7 @@ export default {
       padding: 5px 10px;
     }
   }
+
   button {
     border-radius: 5px;
     padding: 10px 20px;
@@ -109,10 +114,12 @@ export default {
     font-weight: 500;
     color: white;
     cursor: pointer;
+
     &:hover {
       background-color: #3D87B2;
     }
   }
+
   .validation-error {
     color: red;
   }

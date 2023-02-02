@@ -67,17 +67,21 @@ export default {
   padding: 5px 10px;
   border-radius: 5px;
   word-wrap: break-word;
+
   &:hover {
     cursor: pointer;
   }
+
   &__title {
-    resize : none;
+    resize: none;
   }
+
   &__edit-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   .icon-close {
     &:hover {
       fill: red;

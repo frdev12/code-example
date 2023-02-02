@@ -10,6 +10,7 @@ import {useUser} from '@/stores/user';
 import {useCardModal} from '@/stores/cardModal';
 
 export default {
+  name: 'App',
   components: {
     UserButton,
     UserMenu,
@@ -108,6 +109,7 @@ export default {
     color: white;
   }
 }
+
 .main {
   padding: 10px 50px;
   overflow-x: auto;
