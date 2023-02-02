@@ -54,7 +54,8 @@ export default {
     margin-top: 20px;
     display: flex;
     align-items: center;
-    &:hover{
+
+    &:hover {
       cursor: pointer;
       color: #0066A0;
     }
