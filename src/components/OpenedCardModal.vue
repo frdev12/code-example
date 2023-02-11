@@ -38,7 +38,7 @@ export default {
   <div class="overlay" @click="closeModal"></div>
   <div class="container">
     <div class="card-modal">
-      <icon-close @click="closeModal"/>
+      <IconClose @click="closeModal"/>
       <div class="title">
         <input type="text" v-model="card.cardTitle">
       </div>
@@ -73,6 +73,7 @@ export default {
   height: 100vh;
   z-index: 1;
 }
+
 .container {
   position: absolute;
   top: 50%;
@@ -80,6 +81,7 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
+
 .card-modal {
   width: 350px;
   max-height: 85vh;
@@ -98,6 +100,7 @@ export default {
     position: absolute;
     top: 10px;
     right: 10px;
+
     &:hover {
       fill: red;
     }
@@ -106,48 +109,57 @@ export default {
   .title {
     font-size: 18px;
     font-weight: 500;
+
     input {
       width: 100%;
       padding: 5px;
       border-radius: 5px;
       font-weight: 500;
+
       &:focus {
         border: 1px solid #0066A0;
       }
     }
   }
+
   .column {
     font-weight: 400;
   }
+
   .creator {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+
     input {
       width: 100%;
       padding: 5px;
       border-radius: 5px;
       font-weight: 500;
+
       &:focus {
         border: 1px solid #0066A0;
       }
     }
   }
+
   .text {
     textarea {
       width: 100%;
-      resize : none;
+      resize: none;
       border: 1px solid #0066A0;
       border-radius: 5px;
       padding: 5px;
     }
   }
+
   .delete {
     button {
       cursor: pointer;
       padding: 5px 10px;
       border-radius: 5px;
+
       &:hover {
         background-color: lightgrey;
       }

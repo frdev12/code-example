@@ -11,7 +11,7 @@ export default {
 
 <template>
   <button class="add-column-button">
-    <icon-plus/>
+    <IconPlus/>
     Добавить колонку
   </button>
 </template>
@@ -27,6 +27,7 @@ export default {
   color: white;
   border-radius: 5px;
   width: 200px;
+
   &:hover {
     cursor: pointer;
     background-color: #55A9DC;

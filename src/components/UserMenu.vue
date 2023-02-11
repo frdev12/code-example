@@ -12,6 +12,7 @@ export default {
       required: true,
     },
   },
+  emits: ['logout', 'removeData'],
 };
 </script>
 
@@ -19,10 +20,11 @@ export default {
   <div class="user-menu">
     <div class="user-menu__title">Учетная запись</div>
     <div class="user-menu__info">
-      <user-button :user-name="userName" :is-in-menu="true"/>
+      <UserButton :user-name="userName" :is-in-menu="true"/>
       <div>{{ userName }}</div>
     </div>
-    <button class="user-menu__logout" @click="$emit('logout')">Выйти</button>
+    <button class="user-menu__button" @click="$emit('removeData')">Удалить данные</button>
+    <button class="user-menu__button" @click="$emit('logout')">Выйти</button>
   </div>
 </template>
 
@@ -49,14 +51,15 @@ export default {
     margin-top: 10px;
   }
 
-  &__logout {
+  &__button {
     width: 100%;
     margin-top: 20px;
     display: flex;
     align-items: center;
-    &:hover{
-      cursor: pointer;
-      color: #0066A0;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
     }
   }
 }

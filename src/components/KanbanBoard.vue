@@ -2,12 +2,12 @@
 import KanbanColumn from '@/components/KanbanColumn.vue';
 import AddColumnButton from '@/components/AddColumnButton.vue';
 import AddColumnForm from '@/components/AddColumnForm.vue';
-import { Container, Draggable } from "vue3-smooth-dnd";
+import {Container, Draggable} from 'vue3-smooth-dnd';
 import {useBoard} from '@/stores/board';
 import {ref} from 'vue';
 
 export default {
-  name: "KanbanBoard",
+  name: 'KanbanBoard',
   components: {
     Container,
     Draggable,
@@ -17,19 +17,18 @@ export default {
   },
   setup() {
     const board = useBoard();
-    // let columns = board.columnsGet;
     const isShowAddButton = ref(true);
 
     function onDrop(dropResult) {
       const columns = applyDrag(board.columnsGet, dropResult);
       board.setBoard(columns);
     }
-    
+
     function applyDrag(arr, dragResult) {
-      const { removedIndex, addedIndex, payload } = dragResult;
+      const {removedIndex, addedIndex, payload} = dragResult;
 
       if (removedIndex === null && addedIndex === null) return arr;
-      const result = arr
+      const result = arr;
       let itemToAdd = payload;
 
       if (removedIndex !== null) {
@@ -54,7 +53,7 @@ export default {
       board,
     };
   },
-}
+};
 </script>
 
 <template>
@@ -62,12 +61,12 @@ export default {
     <Container class="kanban-board-container" orientation="horizontal" @drop="onDrop">
       <Draggable v-for="column in board.columnsGet" :key="column.id">
         <div>
-          <kanban-column :column-id="column.id"/>
+          <KanbanColumn :column-id="column.id"/>
         </div>
       </Draggable>
       <div>
-        <add-column-button v-if="isShowAddButton" @click="isShowAddButton = false"/>
-        <add-column-form v-else @closeAddColumnForm="isShowAddButton = true" @addNewColumn="addNewColumn"/>
+        <AddColumnButton v-if="isShowAddButton" @click="isShowAddButton = false"/>
+        <AddColumnForm v-else @closeAddColumnForm="isShowAddButton = true" @addNewColumn="addNewColumn"/>
       </div>
     </Container>
 

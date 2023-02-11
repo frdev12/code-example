@@ -10,6 +10,7 @@ import {useUser} from '@/stores/user';
 import {useCardModal} from '@/stores/cardModal';
 
 export default {
+  name: 'App',
   components: {
     UserButton,
     UserMenu,
@@ -59,6 +60,10 @@ export default {
       isShowAuthModal.value = true;
     }
 
+    function removeData() {
+      board.$reset();
+    }
+
     return {
       isShowMenu,
       userMenu,
@@ -69,6 +74,7 @@ export default {
       logout,
       login,
       cardModal,
+      removeData,
     };
   },
 };
@@ -77,17 +83,18 @@ export default {
 <template>
   <header class="header" v-if="user.userNameGet">
     <div class="logo">Code Example</div>
-    <user-button :user-name="user.userNameGet" @click="isShowMenu =!isShowMenu" ref="userButton"/>
-    <user-menu
+    <UserButton :user-name="user.userNameGet" @click="isShowMenu =!isShowMenu" ref="userButton"/>
+    <UserMenu
         :user-name="user.userNameGet"
         v-show="isShowMenu"
         ref="userMenu"
         @logout="logout"
+        @remove-data="removeData"
     />
   </header>
 
   <main class="main">
-    <kanban-board/>
+    <KanbanBoard/>
   </main>
 
   <AuthorizationModal @login="login" v-if="isShowAuthModal"/>
@@ -108,6 +115,7 @@ export default {
     color: white;
   }
 }
+
 .main {
   padding: 10px 50px;
   overflow-x: auto;

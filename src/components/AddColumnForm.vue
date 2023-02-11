@@ -28,7 +28,7 @@ export default {
     >
     <div class="add-column-form__actions">
       <button @click="$emit('addNewColumn', newColumnTitle)">Добавить</button>
-      <icon-close @click="$emit('closeAddColumnForm')"/>
+      <IconClose @click="$emit('closeAddColumnForm')"/>
     </div>
   </div>
 </template>
@@ -52,6 +52,7 @@ export default {
   &__actions {
     display: flex;
     align-items: center;
+
     button {
       background-color: #0066A0;
       padding: 5px 20px;
@@ -59,12 +60,15 @@ export default {
       color: white;
       margin-right: 10px;
       cursor: pointer;
+
       &:hover {
         background-color: #3D87B2;
       }
     }
+
     .icon-close {
       cursor: pointer;
+
       &:hover {
         fill: red;
       }

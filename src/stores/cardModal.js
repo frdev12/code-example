@@ -9,21 +9,21 @@ export const useCardModal = defineStore('cardModal', {
     };
   },
   getters: {
-    isShowCardModalGet() {
-      return this.isShowCardModal;
+    isShowCardModalGet(state) {
+      return state.isShowCardModal;
     },
-    columnIdGet() {
-      return this.columnId;
+    columnIdGet(state) {
+      return state.columnId;
     },
     cardIdGet() {
       return this.cardId;
-    }
+    },
   },
   actions: {
     updateShowCardModal(isShow, columnId, cardId) {
       this.isShowCardModal = isShow;
       this.columnId = columnId;
       this.cardId = cardId;
-    }
+    },
   },
 });

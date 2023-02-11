@@ -1,9 +1,3 @@
-<template>
-  <button class="user-button" :class="{'user-button--in-menu': isInMenu}">
-    {{ userName.charAt(0).toUpperCase() }}
-  </button>
-</template>
-
 <script>
 export default {
   name: 'UserButton',
@@ -20,6 +14,12 @@ export default {
 };
 </script>
 
+<template>
+  <button class="user-button" :class="{'user-button--in-menu': isInMenu}">
+    {{ userName.charAt(0).toUpperCase() }}
+  </button>
+</template>
+
 <style lang="scss" scoped>
 .user-button {
   width: 30px;
@@ -29,13 +29,16 @@ export default {
   font-size: 18px;
   font-weight: 500;
   color: white;
+
   &:hover {
     outline: 3px solid #55A9DC;
     cursor: pointer;
   }
+
   &--in-menu {
     width: 40px;
     height: 40px;
+
     &:hover {
       outline: none;
       cursor: auto;
