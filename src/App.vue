@@ -60,6 +60,10 @@ export default {
       isShowAuthModal.value = true;
     }
 
+    function removeData() {
+      board.$reset();
+    }
+
     return {
       isShowMenu,
       userMenu,
@@ -70,6 +74,7 @@ export default {
       logout,
       login,
       cardModal,
+      removeData,
     };
   },
 };
@@ -84,6 +89,7 @@ export default {
         v-show="isShowMenu"
         ref="userMenu"
         @logout="logout"
+        @remove-data="removeData"
     />
   </header>
 
