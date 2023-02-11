@@ -20,7 +20,7 @@ export default {
   <div class="user-menu">
     <div class="user-menu__title">Учетная запись</div>
     <div class="user-menu__info">
-      <user-button :user-name="userName" :is-in-menu="true"/>
+      <UserButton :user-name="userName" :is-in-menu="true"/>
       <div>{{ userName }}</div>
     </div>
     <button class="user-menu__button" @click="$emit('removeData')">Удалить данные</button>

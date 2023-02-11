@@ -52,9 +52,9 @@ export default {
 <template>
   <div class="kanban-card" @click="openCardModal">
     <div class="kanban-card__edit-buttons">
-      <icon-edit v-show="!isEditCardTitle" @click.stop="isEditCardTitle = true"/>
-      <icon-done v-show="isEditCardTitle" @click.stop="isEditCardTitle = false"/>
-      <icon-close @click.stop="removeCard"/>
+      <IconEdit v-show="!isEditCardTitle" @click.stop="isEditCardTitle = true"/>
+      <IconDone v-show="isEditCardTitle" @click.stop="isEditCardTitle = false"/>
+      <IconClose @click.stop="removeCard"/>
     </div>
     <textarea class="kanban-card__title" rows="5" v-model="card.cardTitle" v-if="isEditCardTitle"></textarea>
     <div v-else>{{ card.cardTitle }}</div>

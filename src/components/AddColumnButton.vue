@@ -11,7 +11,7 @@ export default {
 
 <template>
   <button class="add-column-button">
-    <icon-plus/>
+    <IconPlus/>
     Добавить колонку
   </button>
 </template>

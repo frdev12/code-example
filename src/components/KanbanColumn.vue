@@ -80,8 +80,8 @@ export default {
     <div class="kanban-column__title" :class="{'kanban-column__title--edit': isEditColumnTitle}">
       <input type="text" v-model="column.title" :disabled="!isEditColumnTitle"
              @keydown.enter="isEditColumnTitle = false">
-      <icon-edit @click="isEditColumnTitle = true" v-show="!isEditColumnTitle"/>
-      <icon-done @click="isEditColumnTitle = false" v-show="isEditColumnTitle"/>
+      <IconEdit @click="isEditColumnTitle = true" v-show="!isEditColumnTitle"/>
+      <IconDone @click="isEditColumnTitle = false" v-show="isEditColumnTitle"/>
     </div>
     <Container
         class="column-container"
@@ -91,7 +91,7 @@ export default {
         :get-child-payload="getChildPayload"
     >
       <Draggable v-for="card in column.cards" :key="card.id">
-        <kanban-card :card-id="card.id" :column-id="columnId"/>
+        <KanbanCard :card-id="card.id" :column-id="columnId"/>
       </Draggable>
     </Container>
     <textarea
@@ -104,7 +104,7 @@ export default {
     <button class="add-card" v-show="!isCreateNewCard" @click="isCreateNewCard = true">Добавить карточку</button>
     <div class="new-card-buttons" v-show="isCreateNewCard">
       <button @click="addNewCard">Добавить</button>
-      <icon-close @click="isCreateNewCard = false; newCardTitle = null"/>
+      <IconClose @click="isCreateNewCard = false; newCardTitle = null"/>
     </div>
   </div>
 </template>

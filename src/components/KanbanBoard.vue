@@ -61,12 +61,12 @@ export default {
     <Container class="kanban-board-container" orientation="horizontal" @drop="onDrop">
       <Draggable v-for="column in board.columnsGet" :key="column.id">
         <div>
-          <kanban-column :column-id="column.id"/>
+          <KanbanColumn :column-id="column.id"/>
         </div>
       </Draggable>
       <div>
-        <add-column-button v-if="isShowAddButton" @click="isShowAddButton = false"/>
-        <add-column-form v-else @closeAddColumnForm="isShowAddButton = true" @addNewColumn="addNewColumn"/>
+        <AddColumnButton v-if="isShowAddButton" @click="isShowAddButton = false"/>
+        <AddColumnForm v-else @closeAddColumnForm="isShowAddButton = true" @addNewColumn="addNewColumn"/>
       </div>
     </Container>
 
