@@ -83,8 +83,8 @@ export default {
 <template>
   <header class="header" v-if="user.userNameGet">
     <div class="logo">Code Example</div>
-    <user-button :user-name="user.userNameGet" @click="isShowMenu =!isShowMenu" ref="userButton"/>
-    <user-menu
+    <UserButton :user-name="user.userNameGet" @click="isShowMenu =!isShowMenu" ref="userButton"/>
+    <UserMenu
         :user-name="user.userNameGet"
         v-show="isShowMenu"
         ref="userMenu"
@@ -94,7 +94,7 @@ export default {
   </header>
 
   <main class="main">
-    <kanban-board/>
+    <KanbanBoard/>
   </main>
 
   <AuthorizationModal @login="login" v-if="isShowAuthModal"/>

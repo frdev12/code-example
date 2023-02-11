@@ -28,7 +28,7 @@ export default {
     >
     <div class="add-column-form__actions">
       <button @click="$emit('addNewColumn', newColumnTitle)">Добавить</button>
-      <icon-close @click="$emit('closeAddColumnForm')"/>
+      <IconClose @click="$emit('closeAddColumnForm')"/>
     </div>
   </div>
 </template>

@@ -38,7 +38,7 @@ export default {
   <div class="overlay" @click="closeModal"></div>
   <div class="container">
     <div class="card-modal">
-      <icon-close @click="closeModal"/>
+      <IconClose @click="closeModal"/>
       <div class="title">
         <input type="text" v-model="card.cardTitle">
       </div>
